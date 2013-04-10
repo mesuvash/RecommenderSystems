@@ -70,16 +70,11 @@ public class UserItemRatingReader{
 				rating = 1.0;
 			else{
 				rating = Double.parseDouble(tokens[2]);
-			}
-			try{
-				
-			userItemRating.set(uid-1, item_id-1, rating);
-			}
-			catch (Exception e){
-				System.out.println(""+userItemRating.getRowCount() + " " + userItemRating.getColumnCount() );
-				System.out.println(""+ uid +" "+ item_id);
-				throw e;
-			}
+			}			
+			// out of bound error may occur if the size
+			// of the matrix doesn't match to max(uids) - 1
+			// or max(item_ids) -1
+			userItemRating.set(uid-1, item_id-1, rating);	
 		}
 		
 		return userItemRating;
