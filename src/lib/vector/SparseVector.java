@@ -1,6 +1,8 @@
 package lib.vector;
 
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 public class SparseVector {
 	
@@ -57,6 +59,10 @@ public class SparseVector {
 	
 	public int itemCount(){
 		return container.keySet().size();
+	}
+	
+	public HashSet<Integer> getIndicesHashSet(){
+		return (HashSet<Integer>) container.keySet();
 	}
 	
 	public int[] getIndices(){
